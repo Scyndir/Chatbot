@@ -42,7 +42,7 @@ public class Chatbot
 			response += "How polite of you\n";
 		}
 		
-		response += sayFarewell() + "\n";
+		response += getRandomTopic() + "\n";
 		
 		return response;
 	}
@@ -180,5 +180,30 @@ public class Chatbot
 		
 		
 		return time;
+	}
+	
+	public String getRandomTopic()
+	{
+		String topic = "";
+		
+		
+		ArrayList<String> randomTopics = new ArrayList<String>();
+		
+		randomTopics.add("Pancakes or waffles?");
+		randomTopics.add("Have you read Ready Player One?");
+		randomTopics.add("What's your favourite flavour of ice cream?");
+		randomTopics.add("I would love some coffee right now");
+		randomTopics.add("What is your favourite academic subject?");
+		randomTopics.add("What's the largest word you know?");
+		randomTopics.add("What is your favourite dinosaur");
+		randomTopics.add("Where would you take a first date?");
+		randomTopics.add("I love hiking, do you?");
+		randomTopics.add("Do you enjoy wakeboarding?");
+		
+		int randomIndex = (int) (Math.random() * randomTopics.size());
+		
+		topic = randomTopics.get(randomIndex);
+		
+		return topic;
 	}
 }
