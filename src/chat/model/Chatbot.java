@@ -16,6 +16,16 @@ public class Chatbot
 		this.farewellCount = 4;
 	}
 	
+	@Override
+	public String toString()
+	{
+		String description = "I am a Chatbot called: " + name + "\n";
+		description += "My favourite topic is: N/A";
+		
+		return description;
+	}
+
+	
 	public String processText(String text)
 	{	
 		String response = sayGreeting() + "\nYou said: ";
@@ -34,16 +44,21 @@ public class Chatbot
 		
 		if (isPolitical(text))
 		{
-			response += "gross, politics\n";
+			response += respondToPolitical() + "\n";
 		}
 		
 		if (isPolite(text))
 		{
-			response += "How polite of you\n";
+			response += respondToPolite() + "\n";
 		}
 		
+		if (containsQuestion(text))
+		{
+			response += "there is a question present\n";
+		}
+
 		response += getRandomTopic() + "\n";
-		
+				
 		return response;
 	}
 	
@@ -91,64 +106,13 @@ public class Chatbot
 		return farewell;
 	}
 	
-	public boolean isPolitical(String parameter)
-	{
-		boolean political = false;
-		
-		ArrayList<String> politics = new ArrayList<String>();
-		
-		politics.add("politics");
-		politics.add("republican");
-		politics.add("democrat");
-		politics.add("election");
-		politics.add("biden");
-		
-		for (String current : politics)
-		{
-			if (parameter.toLowerCase().indexOf(current) >= 0)
-			{
-				political = true;
-			}
-		}
-		
-		return political;
-	}
-	
-	public boolean isPolite(String parameter)
-	{
-		boolean polite = false;
-		
-		ArrayList<String> politeness = new ArrayList<String>();
-		
-		politeness.add("please");
-		politeness.add("thank you");
-		
-		for (String current : politeness)
-		{
-			if (parameter.toLowerCase().indexOf(current) >= 0)
-			{
-				polite = true;
-			}
-		}
-		return polite;
-	}
-	
-	@Override
-	public String toString()
-	{
-		String description = "I am a Chatbot called: " + name + "\n";
-		description += "My favourite topic is: N/A";
-		
-		return description;
-	}
-	
 	public String getName()
 	{
 		name = "My name is " + this.name;
 		return name;
 	}
 	
-	public String getDate()
+	private String getDate()
 	{
 		String date = "The date is ";
 		
@@ -169,7 +133,7 @@ public class Chatbot
 		return date;
 	}
 	
-	public String getTime()
+	private String getTime()
 	{
 		String time = "The time is ";
 		
@@ -183,7 +147,7 @@ public class Chatbot
 		return time;
 	}
 	
-	public String getRandomTopic()
+	private String getRandomTopic()
 	{
 		String topic = "";
 		
@@ -206,5 +170,89 @@ public class Chatbot
 		topic = randomTopics.get(randomIndex);
 		
 		return topic;
+	}
+	
+	private boolean isPolitical(String parameter)
+	{
+		boolean political = false;
+		
+		ArrayList<String> politics = new ArrayList<String>();
+		
+		politics.add("politics");
+		politics.add("republican");
+		politics.add("democrat");
+		politics.add("election");
+		politics.add("biden");
+		
+		for (String current : politics)
+		{
+			if (parameter.toLowerCase().indexOf(current) >= 0)
+			{
+				political = true;
+			}
+		}
+		
+		return political;
+	}
+	
+	private boolean isPolite(String parameter)
+	{
+		boolean polite = false;
+		
+		ArrayList<String> politeness = new ArrayList<String>();
+		
+		politeness.add("please");
+		politeness.add("thank you");
+		
+		for (String current : politeness)
+		{
+			if (parameter.toLowerCase().indexOf(current) >= 0)
+			{
+				polite = true;
+			}
+		}
+		return polite;
+	}
+	
+	public String respondToPolite()
+	{
+		String response = "How polite of you!";
+		
+		return response;
+	}
+	
+	public String respondToPolitical()
+	{
+		String response = "gross, politics";
+		
+		return response;
+	}
+	
+	public boolean containsQuestion(String parameter)
+	{
+		boolean question = false;
+		
+		ArrayList<String> questionWords = new ArrayList<String>();
+		
+		questionWords.add("?");
+		questionWords.add("can you");
+		questionWords.add("will you");
+		
+		for (String index : questionWords)
+		{
+			if (parameter.toLowerCase().indexOf(index) >= 0)
+			{
+				question = true;
+			}
+		}
+		
+		return question;
+	}
+	
+	public String answerQuestion(String parameter)
+	{
+		String answer = "";
+		
+		return answer;
 	}
 }
