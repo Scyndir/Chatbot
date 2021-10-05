@@ -69,7 +69,7 @@ public class Chatbot
 		return greeting;
 	}
 	
-	public String sayFarewell()
+	public String sayFarewells()
 	{
 		String farewell = "";
 		
@@ -82,12 +82,12 @@ public class Chatbot
 		farewells.add("Have a good day!");
 		
 		farewell = farewells.get(farewellCount);
-		farewellCount--;
+		
 		if (farewellCount == 0)
 		{
 			farewellCount = 4;
 		}
-		
+		farewellCount--;
 		return farewell;
 	}
 	
@@ -144,7 +144,8 @@ public class Chatbot
 	
 	public String getName()
 	{
-		return this.name;
+		name = "My name is " + this.name;
+		return name;
 	}
 	
 	public String getDate()

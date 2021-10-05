@@ -1,4 +1,4 @@
-package chatbot.controller;
+package chat.controller;
 
 import java.util.Scanner;
 import chat.model.Chatbot;

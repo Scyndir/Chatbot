@@ -1,6 +1,6 @@
-package chatbot.controller;
+package chat.controller;
 
-import chatbot.controller.Controller;
+import chat.controller.Controller;
 
 public class Runner
 {
