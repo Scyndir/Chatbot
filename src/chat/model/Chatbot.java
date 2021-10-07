@@ -28,9 +28,9 @@ public class Chatbot
 	
 	public String processText(String text)
 	{	
-		String response = sayGreeting() + "\nYou said: ";
+		String response = "";//sayGreeting() + "\nYou said: ";
 		
-		response += text + "\n";
+		response += sayGreeting() + "\n";
 		
 		if (text.toLowerCase().indexOf("date") >= 0)
 		{
@@ -54,7 +54,7 @@ public class Chatbot
 		
 		if (containsQuestion(text))
 		{
-			response += "there is a question present\n";
+			response += answerQuestion(text) + "\n";
 		}
 
 		response += getRandomTopic() + "\n";
@@ -251,7 +251,38 @@ public class Chatbot
 	
 	public String answerQuestion(String parameter)
 	{
-		String answer = "";
+		String answer = parameter;
+		
+		ArrayList<String> questionWords = new ArrayList<String>();
+		ArrayList<String> identifiers = new ArrayList<String>();
+		
+		questionWords.add("can you");
+		questionWords.add("will you");
+		identifiers.add(" i ");
+		identifiers.add(" me ");
+		
+		for (String index : identifiers)
+		{
+			if (parameter.toLowerCase().contains(index))
+			{
+				answer = answer.replace(index, " you ");
+			}
+		}
+		
+		for (String index : questionWords)
+		{
+			if (parameter.toLowerCase().contains(index))
+			{
+				answer = answer.replace(index, "You asked me to");
+			}
+		}
+		
+		if (parameter.toLowerCase().contains("?"))
+		{
+			answer = answer.replace("?", "");
+		}
+		
+		answer += ". That is very interesting.";
 		
 		return answer;
 	}
