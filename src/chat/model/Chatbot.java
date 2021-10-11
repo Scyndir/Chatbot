@@ -3,6 +3,12 @@ package chat.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * The model for our Chatbot project. Used for exploration of string methods and text processing. 
+ * It's a bit dumb, but that's alright
+ * @author Michael Watts
+ *
+ */
 public class Chatbot
 {
 	private String name;
@@ -25,7 +31,11 @@ public class Chatbot
 		return description;
 	}
 
-	
+	/**
+	 * Processes supplied text and provides response for external method calls.
+	 * @param text The text sent from the user via Controller.
+	 * @return The chatbot's answer to continue conversation.
+	 */
 	public String processText(String text)
 	{	
 		String response = "";//sayGreeting() + "\nYou said: ";
@@ -61,7 +71,10 @@ public class Chatbot
 				
 		return response;
 	}
-	
+	/**
+	 * A simple method used to greet people interacting with chatbot.
+	 * @return returns one of 5 possible greetings
+	 */
 	public String sayGreeting()
 	{
 		String greeting = "";
@@ -83,7 +96,10 @@ public class Chatbot
 		
 		return greeting;
 	}
-	
+	/**
+	 * A method that corresponds to sayGreeting, except this is for ending a conversation with a farewell.
+	 * @return similar to sayGreeting, returns one of 5 possible farewells
+	 */
 	public String sayFarewells()
 	{
 		String farewell = "";
@@ -259,13 +275,13 @@ public class Chatbot
 		questionWords.add("can you");
 		questionWords.add("will you");
 		identifiers.add(" i ");
-		identifiers.add(" me ");
+		identifiers.add(" me");
 		
 		for (String index : identifiers)
 		{
 			if (parameter.toLowerCase().contains(index))
 			{
-				answer = answer.replace(index, " you ");
+				answer = answer.replace(index, " you");
 			}
 		}
 		
