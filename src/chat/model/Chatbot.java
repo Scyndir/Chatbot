@@ -100,7 +100,7 @@ public class Chatbot
 	 * A method that corresponds to sayGreeting, except this is for ending a conversation with a farewell.
 	 * @return similar to sayGreeting, returns one of 5 possible farewells
 	 */
-	public String sayFarewells()
+	public String sayFarewell()
 	{
 		String farewell = "";
 		
@@ -230,21 +230,21 @@ public class Chatbot
 		return polite;
 	}
 	
-	public String respondToPolite()
+	private String respondToPolite()
 	{
 		String response = "How polite of you!";
 		
 		return response;
 	}
 	
-	public String respondToPolitical()
+	private String respondToPolitical()
 	{
 		String response = "gross, politics";
 		
 		return response;
 	}
 	
-	public boolean containsQuestion(String parameter)
+	private boolean containsQuestion(String parameter)
 	{
 		boolean question = false;
 		
@@ -265,7 +265,7 @@ public class Chatbot
 		return question;
 	}
 	
-	public String answerQuestion(String parameter)
+	private String answerQuestion(String parameter)
 	{
 		String answer = parameter;
 		
