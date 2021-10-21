@@ -1,18 +1,15 @@
 package chat.controller;
 
-import java.util.Scanner;
 import chat.model.Chatbot;
 import chat.view.Popup;
 
 public class Controller
 {
-	private Scanner input;
 	private Chatbot myChatbot;
 	private Popup view; 
 	
 	public Controller()
 	{
-		this.input = new Scanner(System.in);
 		this.myChatbot = new Chatbot("boi");
 		this.view = new Popup();
 	}
