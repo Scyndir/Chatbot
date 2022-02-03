@@ -26,26 +26,26 @@ public class Controller
 	public void start()
 	{
 
-		ArrayList<String> input = loadTextToList("user input.txt");
+//		ArrayList<String> input = loadTextToList("user input.txt");
 //		myChatbot.setUserInputs(input);
-		input = loadTextToList("chat.txt");
+//		input = loadTextToList("chat.txt");
 //		myChatbot.setChatbotResponses(input);
 		
-		view.displayMessage(myChatbot.sayGreeting());
+//		view.displayMessage(myChatbot.sayGreeting());
 		
-		String userText = view.askQuestion("What do you want to talk about???");
-		while (!userText.equals("quit"))
-		{
-			String response = interactWithChatbot(userText);
-
-			view.displayMessage(response);
-				
-			userText = view.askQuestion("Keep Talking");
-		}
-		view.displayMessage(myChatbot.sayFarewell());
+//		String userText = view.askQuestion("What do you want to talk about???");
+//		while (!userText.equals("quit"))
+//		{
+//			String response = interactWithChatbot(userText);
+//
+//			view.displayMessage(response);
+//				
+//			userText = view.askQuestion("Keep Talking");
+//		}
+//		view.displayMessage(myChatbot.sayFarewell());
 //		view.displayMessage(myChatbot.getMostCommonWord(myChatbot.getUserInputs()));
 		
-		view.displayMessage("Let's save some text");
+//		view.displayMessage("Let's save some text");
 //		saveListAsText(myChatbot.getUserInputs(), "user input.txt");
 //		saveListAsText(myChatbot.getChatbotResponses(), "chat output.txt");
 		
