@@ -12,10 +12,10 @@ import java.io.PrintWriter;
 
 public class Controller
 {
-	private Frame frame;
 	private Chatbot myChatbot;
 	private Popup view; 
-	//Woah I cloned another thing
+	private Frame frame;
+	
 	public Controller()
 	{
 		this.myChatbot = new Chatbot("boi");
