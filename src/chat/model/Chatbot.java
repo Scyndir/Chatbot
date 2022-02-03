@@ -302,4 +302,64 @@ public class Chatbot
 		
 		return answer;
 	}
+	
+	public String getMostCommonWord(ArrayList<String> source)
+	{
+		String common = "";
+		
+		ArrayList<String> actualWords = new ArrayList<String>();
+		
+		for (String sentence : source)
+		{
+			String [] words = sentence.split(" ");
+			for (String word : words)
+			{
+				actualWords.add(word);
+			}
+		}
+		
+		int most = 0;
+		
+		for (int index = 0; index < actualWords.size(); index++)
+		{
+			String current = actualWords.get(index);
+			int count = 1;
+			
+			for (int inner = index + 1; inner < actualWords.size(); inner++)
+			{
+				if (actualWords.get(inner).equalsIgnoreCase(current))
+				{
+					count++;
+				}
+			}
+			if (count > most)
+			{
+				most = count;
+				common = current;
+			}
+		}
+		
+		common = "The most common word was: " + common + ", and it occurs: " + most + " times";
+		return common;
+	}
+//	public ArrayList<String> getUserInputs()
+//	{
+//		return this.userInputs;
+//	}
+//	
+//	public ArrayList<String> getChatbotResponses()
+//	{
+//		return this.chatbotResponses;
+//	}
+//	
+//	public void setUserInputs(ArrayList<String> input) 
+//	{
+//		this.userInputs = input;
+//	}
+//	
+//	public void setChatbotResponses(ArrayList<String> responses)
+//	{
+//		this.chatbotResponses = responses;
+//	}
+//	
 }
