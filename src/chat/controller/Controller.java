@@ -13,7 +13,7 @@ public class Controller
 {
 	private Chatbot myChatbot;
 	private Popup view; 
-	
+	//Woah I cloned another thing
 	public Controller()
 	{
 		this.myChatbot = new Chatbot("boi");
