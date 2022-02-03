@@ -33,4 +33,37 @@ public class Panel extends JPanel
 	
 	private JButton saveButton;
 	private JButton loadButton;
+	
+	public ChatPanel(Controller app)
+	{
+		super();
+		this.app = app;
+		this.layout = new SpringLayout());
+		
+		
+		this.chatButtonPanel = new JPanel(new GridLayout(1, 0));
+		this.ioPanel = new JPanel(new GridLayout(1, 0));
+		
+		this.chatArea = new JTextArea(20, 40);
+		this.chatField = new JTextField(50);
+		
+		
+		setupPanel();
+		setupListeners();
+		setupLayout();
+	}
+	
+	private void setupPanel()
+	{
+		
+	}
+	private void setupListeners()
+	{
+		
+	}
+	private void setupLayout()
+	{
+		
+	}
+	
 }

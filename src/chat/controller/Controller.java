@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import chat.model.Chatbot;
 import chat.view.Popup;
+import chat.view.Frame;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.io.PrintWriter;
 
 public class Controller
 {
+	private Frame frame;
 	private Chatbot myChatbot;
 	private Popup view; 
 	//Woah I cloned another thing
@@ -18,6 +20,7 @@ public class Controller
 	{
 		this.myChatbot = new Chatbot("boi");
 		this.view = new Popup();
+		this.frame = new Frame(this);
 	}
 	
 	public void start()
