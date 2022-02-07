@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.JScrollPane;
 
 import javax.swing.JPanel;
 import chat.controller.Controller;
@@ -22,6 +23,7 @@ public class Panel extends JPanel
 	private SpringLayout layout;
 	
 	private JTextArea chatArea;
+	private JScrollPane chatPane;
 	private JTextField chatField;
 	
 	private JButton chatButton;
@@ -46,6 +48,7 @@ public class Panel extends JPanel
 		this.ioPanel = new JPanel(new GridLayout(1, 0));
 		
 		this.chatArea = new JTextArea(20, 40);
+		this.chatPane = new JScrollPane();
 		this.chatField = new JTextField(50);
 		
 		this.chatButton = new JButton("Chat");
