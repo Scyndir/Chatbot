@@ -65,6 +65,19 @@ public class Controller
 	{
 		String response = "";
 		
+		if (choice == 7)
+		{
+			saveListAsText(myChatbot.getUserInputs(), "user input.txt");
+			saveListAsText(myChatbot.getChatbotResponses(), "chat output.txt");
+			response+= "\nSaved the text\n";
+		}
+		else if (choice == 8)
+		{
+			ArrayList<String> userInput = loadTextToList("user input.txt");
+			ArrayList<String> chatbotResponses = loadTextToList("chat ouput.txt");
+			myChatbot.setUserInputs(userInput);
+			myChatbot.setChatbotResponses(chatbotResponses);
+		}
 		response += myChatbot.processText(text, choice);
 		
 		

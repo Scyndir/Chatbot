@@ -14,12 +14,16 @@ public class Chatbot
 	private String name;
 	private int greetingCount;
 	private int farewellCount;
+	private ArrayList<String> userInput;
+	private ArrayList<String> getChatbotResponses;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.greetingCount = 0;
 		this.farewellCount = 4;
+		this.userInput = new ArrayList<String>();
+		this.getChatbotResponses = new ArrayList<String>());
 	}
 	
 	@Override
@@ -381,24 +385,24 @@ public class Chatbot
 		common = "The most common word was: " + common + ", and it occurs: " + most + " times";
 		return common;
 	}
-//	public ArrayList<String> getUserInputs()
-//	{
-//		return this.userInputs;
-//	}
-//	
-//	public ArrayList<String> getChatbotResponses()
-//	{
-//		return this.chatbotResponses;
-//	}
-//	
-//	public void setUserInputs(ArrayList<String> input) 
-//	{
-//		this.userInputs = input;
-//	}
-//	
-//	public void setChatbotResponses(ArrayList<String> responses)
-//	{
-//		this.chatbotResponses = responses;
-//	}
-//	
+	public ArrayList<String> getUserInputs()
+	{
+		return this.userInputs;
+	}
+	
+	public ArrayList<String> getChatbotResponses()
+	{
+		return this.chatbotResponses;
+	}
+	
+	public void setUserInputs(ArrayList<String> input) 
+	{
+		this.userInputs = input;
+	}
+	
+	public void setChatbotResponses(ArrayList<String> responses)
+	{
+		this.chatbotResponses = responses;
+	}
+	
 }
