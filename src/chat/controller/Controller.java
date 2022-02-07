@@ -61,6 +61,16 @@ public class Controller
 		return response;
 	}
 	
+	public String interactWithChatbot(String text, int choice)
+	{
+		String response = "";
+		
+		response += myChatbot.processText(text, choice);
+		
+		
+		return response;
+	}
+	
 	public void handleError(Exception error)
 	{
 		String details = "Your error is: " + error.getMessage();

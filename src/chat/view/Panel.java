@@ -74,7 +74,12 @@ public class Panel extends JPanel
 	private void setupChatPane()
 	{
 		chatArea.setEnabled(false);
+		chatArea.setLineWrap(true);
+		chatArea.setWrapStyleWord(true);
+		
 		chatPane.setViewportView(chatArea);
+		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	}
 	
 	private void setupPanel()
@@ -107,6 +112,15 @@ public class Panel extends JPanel
 	private void setupListeners()
 	{
 		chatButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText())));
+		dateButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 1)));
+		timeButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 2)));
+		questionButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 0)));
+		politicsButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 3)));
+		politeButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 4)));
+		
+		
+		
+		
 	}
 	private void setupLayout()
 	{

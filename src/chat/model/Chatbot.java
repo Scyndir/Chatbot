@@ -30,7 +30,46 @@ public class Chatbot
 		
 		return description;
 	}
-
+	
+	public String processText(String text, int choice)
+	{
+		String response = "";
+		
+		if (choice == 0)
+		{
+			if (containsQuestion(text))
+			{
+				response += answerQuestion(text);
+			}
+			else 
+			{
+				response += "not a question, forehead";
+			}
+		}
+		else if (choice == 1)
+		{
+			response += getDate();
+		}
+		else if (choice == 2)
+		{
+			response += getTime();
+		}
+		else if (choice == 3)
+		{
+			response += "bite me you political wench.\n";
+		}
+		else if (choice == 4)
+		{
+			response += "how adorable, the mammal learned some manners";
+		}
+		else if (choice == 5)
+		{
+		
+		}
+		
+		
+		return response + "\n";
+	}
 	/**
 	 * Processes supplied text and provides response for external method calls.
 	 * @param text The text sent from the user via Controller.
