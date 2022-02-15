@@ -14,16 +14,16 @@ public class Chatbot
 	private String name;
 	private int greetingCount;
 	private int farewellCount;
-	private ArrayList<String> userInput;
-	private ArrayList<String> getChatbotResponses;
+	private ArrayList<String> userInputs;
+	private ArrayList<String> chatbotResponses;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.greetingCount = 0;
 		this.farewellCount = 4;
-		this.userInput = new ArrayList<String>();
-		this.getChatbotResponses = new ArrayList<String>());
+		this.userInputs = new ArrayList<String>();
+		this.chatbotResponses = new ArrayList<String>();
 	}
 	
 	@Override
@@ -68,7 +68,7 @@ public class Chatbot
 		}
 		else if (choice == 5)
 		{
-		
+			response += getRandomTopic() + "\n";
 		}
 		
 		

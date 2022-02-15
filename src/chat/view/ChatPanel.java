@@ -13,7 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JPanel;
 import chat.controller.Controller;
 
-public class Panel extends JPanel
+public class ChatPanel extends JPanel
 {
 	private Controller app;
 	
@@ -39,7 +39,7 @@ public class Panel extends JPanel
 	
 	
 	
-	public Panel(Controller app)
+	public ChatPanel(Controller app)
 	{
 		super();
 		this.app = app;
@@ -111,12 +111,18 @@ public class Panel extends JPanel
 	}
 	private void setupListeners()
 	{
+		
 		chatButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText())));
+		
+		questionButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 0)));
 		dateButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 1)));
 		timeButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 2)));
-		questionButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 0)));
 		politicsButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 3)));
 		politeButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 4)));
+		randomButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 5)));
+		
+		saveButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 6)));
+		loadButton.addActionListener(click -> chatArea.append(app.interactWithChatbot(chatField.getText(), 7)));
 		
 		
 		

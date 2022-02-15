@@ -67,6 +67,35 @@ class ChatbotTest
 		}
 		
 	}
+	
+	@Test
+	void testRefactor()
+	{
+		Method [] methods = testedBot.getClass().getDeclaredMethods();
+		boolean hasSingleParameter = false;
+		boolean hasDoubleParameter = false;
+		
+		for (Method method : methods)
+		{
+			if (method.getName().equals("processText"))
+			{
+				if (method.getParameterCount() == 1)
+				{
+					Type[] types = method.getGenericParameterTypes();
+					assertTrue(types[0].getTypeName().equals("java.lang.String"), "The parameter type needs to be: String");
+					hasSingleParameter = true;
+				}
+				else if (method.getParameterCount() == 2)
+				{
+					hasDoubleParameter = true;
+				}
+			}
+		}
+
+		assertTrue(hasSingleParameter, "You need a single parameter method named interactWithChatbot");
+		assertTrue(hasDoubleParameter, "You need a double parameter method named interactWithChatbot");
+	}
+	
 //	
 //	@Test
 //	public void testContainsQuestion()

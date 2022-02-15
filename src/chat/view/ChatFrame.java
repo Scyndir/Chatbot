@@ -3,17 +3,17 @@ package chat.view;
 import chat.controller.Controller;
 import javax.swing.JFrame;
 
-public class Frame extends JFrame
+public class ChatFrame extends JFrame
 {
 	private Controller app;
 	
-	private Panel panel;
+	private ChatPanel panel;
 	
-	public Frame(Controller app)
+	public ChatFrame(Controller app)
 	{
 		super();
 		this.app = app;
-		this.panel = new Panel(this.app);
+		this.panel = new ChatPanel(this.app);
 		
 		setupFrame();
 	}
@@ -21,7 +21,7 @@ public class Frame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(panel);
-		this.setTitle("Window");
+		this.setTitle("Chat Window");
 		this.setSize(800, 600);
 		this.setResizable(false);
 		this.setVisible(true);

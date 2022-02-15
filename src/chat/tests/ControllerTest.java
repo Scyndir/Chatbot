@@ -36,39 +36,32 @@ class ControllerTest
 	}
 
 	@Test
-	void testStructure()
+	void testRefactor()
 	{
-		Field [] fields = testedController.getClass().getDeclaredFields();
-		assertTrue(fields.length > 2, "You need at least 3 data members in your Controller");
 		Method [] methods = testedController.getClass().getDeclaredMethods();
 		assertTrue(methods.length >= 2, "You need at least two methods in the controller");
-		boolean hasStart = false;
-		boolean hasInteract = false;
-//		boolean hasHandle = false;
+		boolean hasSingleParameter = false;
+		boolean hasDoubleParameter = false;
 		
 		for (Method method : methods)
 		{
-//			if (method.getName().equals("handleError"))
-//			{
-//				hasHandle = true;
-//				Type[] types = method.getGenericParameterTypes();
-//				assertTrue(types[0].getTypeName().equals("java.lang.Exception"), "The parameter type needs to be: Exception");
-//			}
-			if (method.getName().equals("start"))
+			if (method.getName().equals("interactWithChatbot"))
 			{
-				hasStart = true;
-			}
-			else if (method.getName().equals("interactWithChatbot"))
-			{
-				hasInteract = true;
-				Type[] types = method.getGenericParameterTypes();
-				assertTrue(types[0].getTypeName().equals("java.lang.String"), "The parameter type needs to be: String");
-				
+				if (method.getParameterCount() == 1)
+				{
+					Type[] types = method.getGenericParameterTypes();
+					assertTrue(types[0].getTypeName().equals("java.lang.String"), "The parameter type needs to be: String");
+					hasSingleParameter = true;
+				}
+				else if (method.getParameterCount() == 2)
+				{
+					hasDoubleParameter = true;
+				}
 			}
 		}
-//		assertTrue(hasHandle, "You need a method named handleError");
-		assertTrue(hasInteract, "You need a method named interactWithChatbot");
-		assertTrue(hasStart, "You need a method named start");
+
+		assertTrue(hasSingleParameter, "You need a single parameter method named interactWithChatbot");
+		assertTrue(hasDoubleParameter, "You need a double parameter method named interactWithChatbot");
 	}
 
 }

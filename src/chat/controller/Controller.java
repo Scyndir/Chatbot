@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import chat.model.Chatbot;
 import chat.view.Popup;
-import chat.view.Frame;
+import chat.view.ChatFrame;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,13 +14,13 @@ public class Controller
 {
 	private Chatbot myChatbot;
 	private Popup view; 
-	private Frame frame;
+	private ChatFrame frame;
 	
 	public Controller()
 	{
 		this.myChatbot = new Chatbot("boi");
 		this.view = new Popup();
-		this.frame = new Frame(this);
+		this.frame = new ChatFrame(this);
 	}
 	
 	public void start()
@@ -65,13 +65,13 @@ public class Controller
 	{
 		String response = "";
 		
-		if (choice == 7)
+		if (choice == 6)
 		{
 			saveListAsText(myChatbot.getUserInputs(), "user input.txt");
 			saveListAsText(myChatbot.getChatbotResponses(), "chat output.txt");
 			response+= "\nSaved the text\n";
 		}
-		else if (choice == 8)
+		else if (choice == 7)
 		{
 			ArrayList<String> userInput = loadTextToList("user input.txt");
 			ArrayList<String> chatbotResponses = loadTextToList("chat ouput.txt");

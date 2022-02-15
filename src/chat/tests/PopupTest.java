@@ -38,7 +38,7 @@ class PopupTest
 	public void testStructure()
 	{
 		Method [] methods = testedPopup.getClass().getDeclaredMethods();
-		assertTrue(methods.length == 2, "You should have two methods in your popup class");
+		assertTrue(methods.length == 3, "You should have two methods in your popup class ");
 		int voidCount = 0;
 		int stringCount = 0;
 		for (Method method : methods)
